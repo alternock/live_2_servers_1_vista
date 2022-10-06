@@ -1,0 +1,21 @@
+<html>
+<head>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<script>
+    function almacenDeDatos(){
+        return {
+            nombreDelUsuario:""
+        }
+    }
+</script>
+
+<body>
+    <div x-data="almacenDeDatos()" 
+    x-init="fetch('http://127.0.0.1:5000/alias').then(r=>r.json()).then(data=>nombreDelUsuario=data)">
+
+        <span x-text="nombreDelUsuario.alias"></span>
+    </div>
+</body>
+</html>
